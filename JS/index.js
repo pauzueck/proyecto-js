@@ -1,5 +1,8 @@
-const availablePlants = { plantName: 'plantOne', price: 30.00, currency: 'USD' };
+const USERNAME= prompt("Username: ").toLowerCase();
+const PASSWORD= prompt("Password: ").toLowerCase();
 
-function displayAvailablePlants() {
-    console.log("Available Plants:");
+if(USERNAME === "plantlover" &&(PASSWORD === "plantlife"|| PASSWORD === "1234")){
+    console.log("Welcome to PlantLife Marketplace!");
+} else {
+    console.log("Try again!");
 }
