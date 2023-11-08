@@ -45,18 +45,22 @@ while (continueChoosing) {
 
 //Condicionales de escoger planta
 
-    if (choiceNumber === 1) {
+switch (choiceNumber) {
+    case 1:
         totalCost += plant1.price;
         console.log("You chose " + plant1.plantName + ". It costs " + plant1.price + " " + plant1.currency + ".");
-    } else if (choiceNumber === 2) {
+        break;
+    case 2:
         totalCost += plant2.price;
         console.log("You chose " + plant2.plantName + ". It costs " + plant2.price + " " + plant2.currency + ".");
-    } else if (choiceNumber === 3) {
+        break;
+    case 3:
         totalCost += plant3.price;
         console.log("You chose " + plant3.plantName + ". It costs " + plant3.price + " " + plant3.currency + ".");
-    } else {
-        console.log("Oops! please select a valid option (1, 2, or 3).");
-    }
+        break;
+    default:
+        console.log("Invalid choice. Please select a valid option (1, 2, or 3).");
+}
 
 // Sigue o para el loop
 
