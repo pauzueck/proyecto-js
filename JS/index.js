@@ -29,3 +29,43 @@ const plant3 = {
     price: 25.00, 
     currency: "USD" 
 }
+
+
+// Variables del loop y del total del precio
+
+let continueChoosing = true;
+let totalCost = 0;
+
+//Loop
+
+while (continueChoosing) {
+    const userChoice = prompt("Which plant do you want? 1. Monstera 2. Peperomia 3. Rubber Plant");
+
+    const choiceNumber = parseInt(userChoice);
+
+//Condicionales de escoger planta
+
+    if (choiceNumber === 1) {
+        totalCost += plant1.price;
+        console.log("You chose " + plant1.plantName + ". It costs " + plant1.price + " " + plant1.currency + ".");
+    } else if (choiceNumber === 2) {
+        totalCost += plant2.price;
+        console.log("You chose " + plant2.plantName + ". It costs " + plant2.price + " " + plant2.currency + ".");
+    } else if (choiceNumber === 3) {
+        totalCost += plant3.price;
+        console.log("You chose " + plant3.plantName + ". It costs " + plant3.price + " " + plant3.currency + ".");
+    } else {
+        console.log("Oops! please select a valid option (1, 2, or 3).");
+    }
+
+// Sigue o para el loop
+
+    const continueBuying = prompt("Do you want to choose another plant? (yes/no)");
+    if (continueBuying.toLowerCase() !== 'yes') {
+        continueChoosing = false;
+    }
+}
+
+//Precio final de la compra
+
+console.log("Your total is: " + totalCost + " " + plant1.currency);
