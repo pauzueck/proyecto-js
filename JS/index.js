@@ -1,68 +1,63 @@
-//Login Marketplace
+// Login Marketplace
+const USERNAME = prompt("Username: ").toLowerCase();
+const PASSWORD = prompt("Password: ").toLowerCase();
 
-const USERNAME= prompt("Username: ").toLowerCase();
-const PASSWORD= prompt("Password: ").toLowerCase();
-
-if(USERNAME === "plantlover" &&(PASSWORD === "plantlife"|| PASSWORD === "1234")){
+if (USERNAME === "plantlover" && (PASSWORD === "plantlife" || PASSWORD === "1234")) {
     console.log("Welcome to PlantLife Marketplace!");
-} else {
-    console.log("Try again!");
+
+
+// Constructor para crear las plantas
+class Plant {
+    constructor(plantName, price, currency) {
+        this.plantName = plantName;
+        this.price = price;
+        this.currency = currency;
+    }
 }
 
+//Creando el array de plantas
 
-// Declarar los objetos
+function createPlants() {
+    const plants = []; 
 
-const plant1 = { 
-    plantName: "Monstera", 
-    price: 28.00, 
-    currency: "USD" 
+    plants.push(new Plant("1. Monstera", 28.00, "USD"));
+    plants.push(new Plant("2. Peperomia", 30.00, "USD"));
+    plants.push(new Plant("3. Rubber Plant", 25.00, "USD"));
+
+    return plants;
 }
 
-const plant2 = { 
-    plantName: "Peperomia", 
-    price: 30.00, 
-    currency: "USD" 
-}
+const plantsCollection = createPlants();
 
-const plant3 = { 
-    plantName: "Rubber Plant", 
-    price: 25.00, 
-    currency: "USD" 
-}
+//Enseñando las opciones de plantas con función 
 
+    function displayPlantOptions() {
+        console.log("Available Plants:");
+        plantsCollection.forEach((plant) => {
+            console.log(`${plant.plantName}: $${plant.price} ${plant.currency}`);
+        });
+    }
 
-// Variables del loop y del total del precio
+    displayPlantOptions();
+
+//Loop para escoger
 
 let continueChoosing = true;
 let totalCost = 0;
 
-//Loop
 
 while (continueChoosing) {
-    const userChoice = prompt("Which plant do you want? 1. Monstera 2. Peperomia 3. Rubber Plant");
+    const userChoice = prompt("Which plant do you want? (Enter plant number): ");
 
     const choiceNumber = parseInt(userChoice);
 
-//Condicionales de escoger planta
-
-switch (choiceNumber) {
-    case 1:
-        totalCost += plant1.price;
-        console.log("You chose " + plant1.plantName + ". It costs " + plant1.price + " " + plant1.currency + ".");
-        break;
-    case 2:
-        totalCost += plant2.price;
-        console.log("You chose " + plant2.plantName + ". It costs " + plant2.price + " " + plant2.currency + ".");
-        break;
-    case 3:
-        totalCost += plant3.price;
-        console.log("You chose " + plant3.plantName + ". It costs " + plant3.price + " " + plant3.currency + ".");
-        break;
-    default:
+    if (choiceNumber >= 1 && choiceNumber <= plantsCollection.length) {
+        const chosenPlant = plantsCollection[choiceNumber - 1];
+        totalCost += chosenPlant.price;
+        console.log(`You chose ${chosenPlant.plantName}. It costs $${chosenPlant.price} ${chosenPlant.currency}.`);
+    } else {
         console.log("Invalid choice. Please select a valid option (1, 2, or 3).");
-}
-
-// Sigue o para el loop
+    }
 
     const continueBuying = prompt("Do you want to choose another plant? (yes/no)");
     if (continueBuying.toLowerCase() !== 'yes') {
@@ -70,6 +65,5 @@ switch (choiceNumber) {
     }
 }
 
-//Precio final de la compra
-
-console.log("Your total is: " + totalCost + " " + plant1.currency);
+console.log(`Your total is: $${totalCost} ${plantsCollection[0].currency}`);
+}
