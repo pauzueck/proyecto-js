@@ -16,7 +16,6 @@ class Plant {
 }
 
 //Creando el array de plantas
-
 function createPlants() {
     const plants = []; 
 
