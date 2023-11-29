@@ -46,6 +46,7 @@ let continueChoosing = true;
 let totalCost = 0;
 
 
+
 while (continueChoosing) {
     const userChoice = prompt("Which plant do you want? (Enter plant number): ");
 
@@ -65,5 +66,7 @@ while (continueChoosing) {
     }
 }
 
+
+//Enseñando el costo total y el currency de la primera planta
 console.log(`Your total is: $${totalCost} ${plantsCollection[0].currency}`);
 }
