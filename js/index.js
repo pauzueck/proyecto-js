@@ -62,6 +62,23 @@ class Plant {
 
         localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
         displayShoppingCart();
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: false,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        
+        Toast.fire({
+            icon: "success",
+            title: `${plantName} added to shopping cart successfully`
+        });
+
     };
 
     function displayShoppingCart() {
@@ -92,4 +109,26 @@ class Plant {
     function emptyCart(){
         localStorage.removeItem('shoppingCart');
         displayShoppingCart();
+    }
+
+    const CHECKOUT = document.getElementById("checkoutSuccess");
+    CHECKOUT.addEventListener("click", checkout);
+
+    function checkout() {
+        const storedCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        
+        if (storedCart.length > 0) {
+        Swal.fire({
+            text: "Thank you for Shopping with Plantlife",
+            icon: "success",
+        }); 
+        localStorage.removeItem('shoppingCart');
+        displayShoppingCart();
+
+        } else {
+            Swal.fire({
+                text: "You shopping cart is empty",
+                icon: "warning",
+            });
+        }
     }
