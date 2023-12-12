@@ -1,121 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+
 </head>
+
 <body>
-    <header>
-        <a href="#"><img src="" alt="logoPlantlife"></a>
-        <img src="" alt="ipadImage">
-    </header>
+    <h1 class="text-center">Login to PlantLife Marketplace</h1>
+    
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username">
+        <label for="password">Password:</label>
+        <input type="password" id="password">
+        <button type="submit">Login</button>
+    </form>
+    
+    <h2 class="text-center">PlantLife Online Store</h2>
+    
+    <section class="marketplace">
 
-<main>
-    <section class="sectionOne">
-    <h1>Discover Our Diverse Plant Selection</h1>
-
-    <a href="./pages/checkout.html"><img src="" alt="shoppingCart"></a> <!-- Look for icon -->
-
-    <nav class="plantFilter">
-        <ul>
-            <li>Plant Type <!-- Dropdowns / filters -->
-                <ul>
-                    <li>Indoor Plants</li>
-                    <li>Outdoor Plants</li>
-                </ul>
-            </li>
-            <li>Light Requirements <!-- Dropdowns / filters -->
-                <ul>
-                    <li>Low Light</li>
-                    <li>Medium Light</li>
-                    <li>Bright Light</li>
-                </ul>
-            </li>
-            <li>Watering Needs <!-- Dropdowns / filters -->
-                <ul>
-                    <li>Low Water</li>
-                    <li>Moderate Water</li>
-                    <li>High Water</li>
-                </ul>
-            </li>
-            <li>Plant Size <!-- Dropdowns / filters -->
-                <ul>
-                    <li>Small</li>
-                    <li>Medium</li>
-                    <li>Large</li>
-                </ul>
-            </li>
-            <li>Plant Care Difficulty <!-- Dropdowns / filters -->
-                <ul>
-                    <li>Beginner-Friendly</li>
-                    <li>Intermediate</li>
-                    <li>Expert</li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+    <section id="plantContainer"></section>
+    
+    <section id="shoppingCart">
+        <h2>Shopping Cart</h2>
+        <ul id="shoppingList"></ul>
+        <p>Total: <span id="total"></span>0</p>
+        <button class="emptyButton" onclick="emptyCart()">Empty Cart</button>
+        <button class="checkoutButton">Checkout</button>
     </section>
+</section>
 
-    <section class="sectionTwo">
-
-        <div class="card">
-        <div class="cardImage">
-            <img src="" alt="plantOption1">
-        </div>
-        <div class="card-add-to-cart">
-            <h3>$25.00 USD</h3>
-            <p>Add to Cart</p>
-            <p>Quantity Input</p> 
-        </div>
-        </div>
-
-
-    </section>
-
-
-    <section class="sectionThree">
-
-        <h2>Explore Our Stylish Plant Pots</h2>
-
-        <div class="card">
-        <div class="cardImage">
-            <img src="" alt="potOption1">
-        </div>
-        <div class="card-add-to-cart">
-            <h3>$30.00 USD</h3>
-            <p>Add to Cart</p>
-            <p>Quantity Input</p> <!-- Look for component - Tailwind install -->
-        </div>
-        </div>
-
-        <div class="card">
-            <div class="cardImage">
-                <img src="" alt="potOption2">
-            </div>
-            <div class="card-add-to-cart">
-                <h3>$30.00 USD</h3>
-                <p>Add to Cart</p>
-                <p>Quantity Input</p> <!-- Look for component - Tailwind install -->
-                </div>
-        </div>
-
-        <div class="card">
-            <div class="cardImage">
-                <img src="" alt="potOption3">
-            </div>
-            <div class="card-add-to-cart">
-                <h3>$30.00 USD</h3>
-                <p>Add to Cart</p>
-                <p>Quantity Input</p> <!-- Look for component - Tailwind install -->
-                </div>
-        </div>
-
-    </section>
-
-</main>
-
-<script src="./js/index.js"></script>
+    <!--scripts-->
+    <script src="./js/index.js"></script>
 
 </body>
+
 </html>

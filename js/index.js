@@ -1,71 +1,95 @@
-// Login Marketplace
-const USERNAME = prompt("Username: ").toLowerCase();
-const PASSWORD = prompt("Password: ").toLowerCase();
-
-if (USERNAME === "plantlover" && (PASSWORD === "plantlife" || PASSWORD === "1234")) {
-    console.log("Welcome to PlantLife Marketplace!");
-
-
 // Constructor para crear las plantas
 class Plant {
-    constructor(plantName, price, currency) {
+    constructor(id, plantName, price, currency, img) {
+        this.id = id;
         this.plantName = plantName;
         this.price = price;
         this.currency = currency;
+        this.img = img;
+        this.qty = 1;
     }
 }
 
-//Creando el array de plantas
-function createPlants() {
-    const plants = []; 
+//Array plantas
 
-    plants.push(new Plant("1. Monstera", 28.00, "USD"));
-    plants.push(new Plant("2. Peperomia", 30.00, "USD"));
-    plants.push(new Plant("3. Rubber Plant", 25.00, "USD"));
+    const MONSTERA = new Plant(1, "Monstera", 28.00, "USD", "./assets/monstera.jpg");
+    const PEPEROMIA = new Plant(2, "Peperomia", 30.00, "USD", "./assets/chinesemp.jpg");
+    const RUBBER = new Plant(3, "Rubber Plant", 25.00, "USD", "./assets/rubber.jpg");
 
-    return plants;
-}
 
-const plantsCollection = createPlants();
+    const plantsCollection = [MONSTERA, PEPEROMIA, RUBBER];    
 
-//Enseñando las opciones de plantas con función 
+//Array carrito
+    let shoppingCart = [];
 
-    function displayPlantOptions() {
-        console.log("Available Plants:");
-        plantsCollection.forEach((plant) => {
-            console.log(`${plant.plantName}: $${plant.price} ${plant.currency}`);
+
+
+    console.log(plantsCollection);
+
+    //DOM
+
+    const PLANT_CONTAINER = document.getElementById("plantContainer");
+
+    //Enseñando las opciones de plantas con función ahora con cards
+
+    const displayPlantOptions = () => {
+
+        plantsCollection.forEach(plant => {
+            const card = document.createElement("div");
+            card.innerHTML = 
+            `
+                <div class="card">
+                <img src="${plant.img}" class="card-img-tom imgPlant" />
+                <div class="card-body">
+                    <h2>${plant.plantName}</h2>
+                    <p>${plant.price} ${plant.currency}</p>
+                    <button onclick="addToCart(${plant.id}, '${plant.plantName}', ${plant.price}, '${plant.currency}')" class="btn styleButton" id="boton${plant.id}">Add to Cart</button>
+                    </div>
+                </div>            
+                `
+            PLANT_CONTAINER.appendChild(card)
         });
-    }
+
+    };
 
     displayPlantOptions();
 
-//Loop para escoger
 
-let continueChoosing = true;
-let totalCost = 0;
+    function addToCart(id,plantName,price,currency){
+        let shoppingCart= JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        
+        shoppingCart.push({id, plantName, price, currency});
 
+        localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+        displayShoppingCart();
+    };
 
+    function displayShoppingCart() {
+        const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+        const shoppingList = document.getElementById('shoppingList');
+        const totalToPay = document.getElementById('total');
+        let total = 0; 
 
-while (continueChoosing) {
-    const userChoice = prompt("Which plant do you want? (Enter plant number): ");
+        shoppingList.innerHTML = '';
 
-    const choiceNumber = parseInt(userChoice);
+        shoppingCart.forEach(plant => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span>${plant.plantName}</span>
+                <span>${plant.price} ${plant.currency}</span>
+            `;
+            shoppingList.appendChild(listItem);
 
-    if (choiceNumber >= 1 && choiceNumber <= plantsCollection.length) {
-        const chosenPlant = plantsCollection[choiceNumber - 1];
-        totalCost += chosenPlant.price;
-        console.log(`You chose ${chosenPlant.plantName}. It costs $${chosenPlant.price} ${chosenPlant.currency}.`);
-    } else {
-        console.log("Invalid choice. Please select a valid option (1, 2, or 3).");
+            total += plant.price;
+
+        });
+
+        totalToPay.textContent = total.toFixed(1); 
+    };
+
+    const emptyButton = document.getElementsByClassName('emptyButton');
+
+    function emptyCart(){
+        localStorage.removeItem('shoppingCart');
+        displayShoppingCart();
     }
-
-    const continueBuying = prompt("Do you want to choose another plant? (yes/no)");
-    if (continueBuying.toLowerCase() !== 'yes') {
-        continueChoosing = false;
-    }
-}
-
-
-//Enseñando el costo total y el currency de la primera planta
-console.log(`Your total is: $${totalCost} ${plantsCollection[0].currency}`);
-}

@@ -1,0 +1,50 @@
+h1{
+    text-align: center;
+}
+.imgPlant{
+    width: 12.5rem;
+    height: 9.375rem;
+    object-fit: contain;
+    margin-top: 1rem;
+}
+
+.styleButton{
+    color: whitesmoke;
+    background-color: darkgreen;
+}
+
+.marketplace{
+    display: flex;
+    flex-direction: row;
+}
+
+#plantContainer{
+    background-color: green;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.card{
+    background-color: white;
+    width: 200px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+#shoppingCart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 18.75rem;
+    border: 1px, solid #ccc;
+    padding: .625rem;
+    border-radius: .3125rem;
+}
+
+.emptyButton{
+    color: whitesmoke;
+    background-color: darkgreen;
+}
