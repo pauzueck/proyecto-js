@@ -43,7 +43,7 @@ class Plant {
                 <div class="card-body">
                     <h2>${plant.plantName}</h2>
                     <p>${plant.price} ${plant.currency}</p>
-                    <button onclick="addToCart(${plant.id}, '${plant.plantName}', ${plant.price}, '${plant.currency}')" class="btn styleButton" id="boton${plant.id}">Add to Cart</button>
+                    <button onclick="addToCart(${plant.id}, '${plant.plantName}', ${plant.price}, '${plant.currency}')" class="styleButton" id="boton${plant.id}">Add to Cart</button>
                     </div>
                 </div>            
                 `
@@ -76,7 +76,7 @@ class Plant {
         
         Toast.fire({
             icon: "success",
-            title: `${plantName} added to shopping cart successfully`
+            title: `${plantName} added to the shopping cart`
         });
 
     };

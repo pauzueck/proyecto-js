@@ -1,7 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.sectionOne{
+    height: 31.25rem;
+    background-image: url(../assets/backgoundplant.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 10% 70%;
+}
+
+.sectionOne div{
+    padding-right: 3.125rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.sectionOne button{
+    margin-right: 3.125rem;
+    width: 50px;
+}
+
+.sectionOne h1{
+    width: 31.25rem;
+    padding-right: 1.875rem;
+    font-size: 4.375rem;
+    text-align: right;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    background-color: #364037;
+    height: 6.25rem;
+}
+
+header nav{
+    display: flex;
+    align-items: center;
+}
+
+header img{
+    height: 3.4375rem;
+    padding-left: 1.25rem;
+}
+
+
 h1{
     text-align: center;
 }
 .imgPlant{
+    padding-bottom: .9375rem;
     width: 12.5rem;
     height: 9.375rem;
     object-fit: contain;
@@ -9,8 +62,18 @@ h1{
 }
 
 .styleButton{
+    border: none;
+    padding-left: .625rem;
+    padding-right: .625rem;
+    padding-top: .1875rem;
+    padding-bottom: .1875rem;
+    border-radius: .625rem;
     color: whitesmoke;
-    background-color: darkgreen;
+    background-color: #364037;
+}
+
+.styleButton:focus{
+    background-color: #6D8B74;
 }
 
 .marketplace{
@@ -19,22 +82,33 @@ h1{
 }
 
 #plantContainer{
-    background-color: green;
+    padding-top: 3.125rem;
+    width: 80%;
+    background-color: #FCECD5;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 .card{
     background-color: white;
+    padding-bottom: 1.25rem;
     width: 200px;
-    border: 2px solid black;
+    border: none;
+    border-radius: .625rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0.5rem;
 }
 
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3px;
+}
 #shoppingCart{
+    background-color: #6D8B74;
     display: flex;
     flex-direction: column;
     align-items: center;

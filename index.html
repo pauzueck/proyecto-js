@@ -10,17 +10,24 @@
 </head>
 
 <body>
-    <h1 class="text-center">Login to PlantLife Marketplace</h1>
+
+    <header class="plantlifeHeader">
+        <nav>
+            <img src="./assets/logo.png" alt="logo-plantlife">
+        </nav>
+    </header>
+
+    <main>
+
     
-    <form id="loginForm">
-        <label for="username">Username:</label>
-        <input type="text" id="username">
-        <label for="password">Password:</label>
-        <input type="password" id="password">
-        <button type="submit">Login</button>
-    </form>
     
-    <h2 class="text-center">PlantLife Online Store</h2>
+    <section class="sectionOne">
+        <div>
+        <h1 class="text-center">The place to find your perfect plant companion</h1>
+        <button class="loginButton"> Login</button>
+        </div>
+    </section>
+
     
     <section class="marketplace">
 
@@ -34,6 +41,8 @@
         <button class="checkoutButton" id="checkoutSuccess">Checkout</button>
     </section>
 </section>
+
+</main>
 
     <!--scripts-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
