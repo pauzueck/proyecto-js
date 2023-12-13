@@ -14,10 +14,15 @@ class Plant {
 
     const MONSTERA = new Plant(1, "Monstera", 28.00, "USD", "./assets/monstera.jpg");
     const PEPEROMIA = new Plant(2, "Peperomia", 30.00, "USD", "./assets/chinesemp.jpg");
-    const RUBBER = new Plant(3, "Rubber Plant", 25.00, "USD", "./assets/rubber.jpg");
+    const RUBBER = new Plant(3, "Rubber Plant", 25.00, "USD", "./assets/rubberplant.jpg");
+    const FIDDLE = new Plant(3, "Fiddle Leaf Fig", 15.00, "USD", "./assets/fiddleleaffig.jpg");
+    const JADE = new Plant(3, "Jade Plant", 18.00, "USD", "./assets/jadeplant.jpg");
+    const PEACE = new Plant(3, "Peace Lilly", 22.00, "USD", "./assets/peacelilly.jpg");
+    const SNAKE = new Plant(3, "Snake Plant", 20.00, "USD", "./assets/snakeplant.jpg");
 
 
-    const plantsCollection = [MONSTERA, PEPEROMIA, RUBBER];    
+
+    const plantsCollection = [MONSTERA, PEPEROMIA, RUBBER, FIDDLE, JADE, PEACE, SNAKE];    
 
 //Array carrito
     let shoppingCart = [];
