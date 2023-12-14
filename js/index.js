@@ -25,9 +25,8 @@ class Plant {
     const plantsCollection = [MONSTERA, PEPEROMIA, RUBBER, FIDDLE, JADE, PEACE, SNAKE];    
 
 //Array carrito
+
     let shoppingCart = [];
-
-
 
     console.log(plantsCollection);
 
@@ -59,6 +58,7 @@ class Plant {
 
     displayPlantOptions();
 
+//Agregar al carrito, JSON Storage y Sweet Alert
 
     function addToCart(id,plantName,price,currency){
         let shoppingCart= JSON.parse(localStorage.getItem('shoppingCart')) || [];
@@ -86,6 +86,8 @@ class Plant {
 
     };
 
+    //Armando la lista en el carrito y la suma del total
+
     function displayShoppingCart() {
         const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
         const shoppingList = document.getElementById('shoppingList');
@@ -109,6 +111,8 @@ class Plant {
         totalToPay.textContent = total.toFixed(1); 
     };
 
+    //función para vaciar el carrito
+
     const emptyButton = document.getElementsByClassName('emptyButton');
 
     function emptyCart(){
@@ -116,24 +120,29 @@ class Plant {
         displayShoppingCart();
     }
 
+
+    // Condición para "comprar" si hay productos en el carrito o para decir que el carrito está vacío. 
+    //Alertas con Sweet Alert y operador ternario
+
     const CHECKOUT = document.getElementById("checkoutSuccess");
     CHECKOUT.addEventListener("click", checkout);
+
 
     function checkout() {
         const storedCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
         
-        if (storedCart.length > 0) {
+        (storedCart.length > 0) ?
+        (
         Swal.fire({
             text: "Thank you for Shopping with Plantlife",
             icon: "success",
-        }); 
-        localStorage.removeItem('shoppingCart');
-        displayShoppingCart();
-
-        } else {
+        }),
+        localStorage.removeItem('shoppingCart'),
+        displayShoppingCart()
+        ) : 
             Swal.fire({
                 text: "You shopping cart is empty",
                 icon: "warning",
             });
-        }
     }
+    

@@ -22,13 +22,21 @@
 
 .sectionOne button{
     margin-right: 3.125rem;
-    width: 50px;
+    margin-top: 2.5rem;
+    width: 4.375rem;
+    height: 2.5rem;
+    background-color:#364037;
+    color: white;
+    border: none;
+    border-radius: 1.5625rem;
 }
 
 .sectionOne h1{
-    width: 31.25rem;
+    font-family: 'Lato', sans-serif;
+    margin-top: 5rem;
+    width: 600px;
     padding-right: 1.875rem;
-    font-size: 4.375rem;
+    font-size: 3.75rem;
     text-align: right;
 }
 
