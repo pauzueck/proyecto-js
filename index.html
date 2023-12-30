@@ -15,6 +15,11 @@
         <nav>
             <img src="./assets/logo.png" alt="logo-plantlife">
         </nav>
+
+        <div id="weatherSection">
+            <span id="temperature"></span>
+        </div>
+
     </header>
 
     <main>
@@ -24,21 +29,37 @@
     <section class="sectionOne">
         <div>
         <h1 class="text-center">The place to find your perfect plant companion</h1>
-        <button class="loginButton"> Login</button>
+        <button id="loginButton" class="loginButton"> Login</button>
         </div>
     </section>
 
-    
-    <section class="marketplace">
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="Login">Login</button>
+            </form>
+        </div>
+    </div>
 
-    <section id="plantContainer"></section>
+    <section class="marketplace">
+        
+    <section id="plantContainer">
+
+    </section>
     
     <section id="shoppingCart">
         <h2>Shopping Cart</h2>
         <ul id="shoppingList"></ul>
-        <p>Total: <span id="total"></span>0</p>
-        <button class="emptyButton" onclick="emptyCart()">Empty Cart</button>
-        <button class="checkoutButton" id="checkoutSuccess">Checkout</button>
+        <p>Total: $ <span id="total"></span>0</p>
+        <div class="buttonShop">
+            <button class="emptyButton" onclick="emptyCart()">Empty Cart</button>
+            <button class="checkoutButton" id="checkoutSuccess">Checkout</button>
+        </div>
     </section>
 </section>
 
